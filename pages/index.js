@@ -11,8 +11,8 @@ if (typeof window !== "undefined") {
     },
     clientId: '',
     scopes: [],
-    authorizationUrl: "http://localhost:5000/auth/saml/authorize",
-    tokenUrl: "http://localhost:5000/auth/saml/token",
+    authorizationUrl: "http://localhost:5000/oauth/authorize",
+    tokenUrl: "http://localhost:5000/oauth/token",
     redirectUrl: "http://localhost:3000",
     onAccessTokenExpiry(refreshAccessToken) {
       console.log("Expired! Access token needs to be renewed.");
