@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { OAuth2AuthCodePKCE } from '@bity/oauth2-auth-code-pkce';
 
 let authorize;
