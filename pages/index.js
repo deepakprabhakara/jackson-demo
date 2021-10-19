@@ -45,11 +45,7 @@ if (typeof window !== 'undefined') {
         console.log(token.token.value);
         fetch(
           'http://localhost:5000/oauth/userinfo?access_token=' +
-            token.token.value,
-          {
-            method: 'post',
-            headers: {},
-          }
+            token.token.value
         )
           .then(json)
           .then(function (data) {
