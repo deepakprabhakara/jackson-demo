@@ -5,14 +5,14 @@ if (typeof window !== 'undefined') {
   const oauth = new OAuth2AuthCodePKCE({
     extraAuthorizationParams: {
       provider: 'saml',
-      tenant: 'boxyhq.com',
-      product: 'demo',
     },
     clientId: '',
     scopes: [],
     authorizationUrl: 'http://localhost:5000/oauth/authorize',
     tokenUrl: 'http://localhost:5000/oauth/token',
     redirectUrl: 'http://localhost:3000',
+    clientId: 'tenant=boxyhq.com&product=demo',
+    clientSecret: 'dummy',
     onAccessTokenExpiry(refreshAccessToken) {
       console.log('Expired! Access token needs to be renewed.');
       alert(
@@ -31,13 +31,34 @@ if (typeof window !== 'undefined') {
     oauth.fetchAuthorizationCode();
   };
 
+  function json(response) {
+    return response.json();
+  }
+
   oauth
     .isReturningFromAuthServer()
     .then((hasAuthCode) => {
       if (!hasAuthCode) {
         console.log('Something wrong...no auth code.');
       }
-      return oauth.getAccessToken().then((token) => console.log(token));
+      return oauth.getAccessToken().then((token) => {
+        console.log(token.token.value);
+        fetch(
+          'http://localhost:5000/oauth/userinfo?access_token=' +
+            token.token.value,
+          {
+            method: 'post',
+            headers: {},
+          }
+        )
+          .then(json)
+          .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+          })
+          .catch(function (error) {
+            console.log('Request failed', error);
+          });
+      });
     })
     .catch((potentialError) => {
       if (potentialError) {
