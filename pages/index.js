@@ -50,6 +50,10 @@ if (typeof window !== 'undefined') {
           .then(json)
           .then(function (data) {
             console.log('Request succeeded with JSON response', data);
+            if (data.email) {
+              console.log('Logged in as:', data.email);
+              alert('Logged in as: ' + data.email);
+            }
           })
           .catch(function (error) {
             console.log('Request failed', error);
