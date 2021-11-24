@@ -6,7 +6,6 @@ if (typeof window !== 'undefined') {
     extraAuthorizationParams: {
       provider: 'saml',
     },
-    clientId: '',
     scopes: [],
     authorizationUrl: 'http://localhost:5000/oauth/authorize',
     tokenUrl: 'http://localhost:5000/oauth/token',
