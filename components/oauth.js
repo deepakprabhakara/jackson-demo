@@ -48,7 +48,7 @@ export default function OAuth() {
           console.log(token.token.value);
           // TODO: Send a request to the server to make a fetch to Jackson userinfo
           fetch(
-            'http://localhost:5000/oauth/userinfo?access_token=' +
+            '/api/login?access_token=' +
               token.token.value
           )
             .then(json)
