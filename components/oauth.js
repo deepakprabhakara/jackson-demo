@@ -1,5 +1,6 @@
 import { OAuth2AuthCodePKCE } from '@bity/oauth2-auth-code-pkce';
 import { useState } from 'react';
+import { JACKSON_URL } from 'lib/constants';
 
 let oauth;
 
@@ -16,8 +17,8 @@ export default function OAuth() {
         provider: 'saml',
       },
       scopes: [],
-      authorizationUrl: 'http://localhost:5000/oauth/authorize',
-      tokenUrl: 'http://localhost:5000/oauth/token',
+      authorizationUrl: `${JACKSON_URL}/oauth/authorize`,
+      tokenUrl: `${JACKSON_URL}/oauth/token`,
       redirectUrl: 'http://localhost:3000',
       clientId: 'tenant=boxyhq.com&product=demo',
       clientSecret: 'dummy',
@@ -47,10 +48,7 @@ export default function OAuth() {
           // post the token to server and then fetch userinfo from server and log in the user
           console.log(token.token.value);
           // TODO: Send a request to the server to make a fetch to Jackson userinfo
-          fetch(
-            '/api/login?access_token=' +
-              token.token.value
-          )
+          fetch('/api/login?access_token=' + token.token.value)
             .then(json)
             .then(function (data) {
               console.log('Request succeeded with JSON response', data);
