@@ -17,13 +17,11 @@ export default function OAuth() {
         provider: 'saml',
       },
       scopes: [],
-      authorizationUrl: `${JACKSON_URL}/oauth/authorize`,
-      tokenUrl: `${JACKSON_URL}/oauth/token`,
+      authorizationUrl: `${JACKSON_URL}/api/oauth/authorize`,
+      tokenUrl: `${JACKSON_URL}/api/oauth/token`,
       redirectUrl: 'http://localhost:3000',
       clientId: 'tenant=boxyhq.com&product=demo',
       clientSecret: 'dummy',
-      // clientId: 'ce68d73b46d65517741d76ebb9e5df95bf321d09',
-      // clientSecret: '9abe24d01a4f6cff167df0b839a5fb669b89fc4921e3d6c1',
       onAccessTokenExpiry(refreshAccessToken) {
         console.log('Expired! Access token needs to be renewed.');
         alert(

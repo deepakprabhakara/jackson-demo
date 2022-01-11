@@ -7,7 +7,7 @@ async function loginRoute(req, res) {
 
   try {
     const response = await fetch(
-      `${JACKSON_URL}/oauth/userinfo?access_token=` + access_token
+      `${JACKSON_URL}/api/oauth/userinfo?access_token=` + access_token
     );
     const data = await response.json();
 
