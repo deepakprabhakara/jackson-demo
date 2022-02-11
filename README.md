@@ -1,10 +1,10 @@
 # Jackson Demo App
 
-Demo web app that shows how to use SAML Jackson.
+Demo web app that shows how to use [SAML Jackson](https://github.com/boxyhq/jackson)
 
-# Setup
+## Setup Instructions
 
-Follow the below instructions.
+Follow the below instructions to setup this demo.
 
 ### Clone the repo
 
@@ -28,7 +28,7 @@ npm install
 cp .env.example .env
 ```
 
-Update the `NEXT_PUBLIC_JACKSON_SERVICE` variable in .env to point to the Jackson service.
+Update the `NEXT_PUBLIC_JACKSON_SERVICE` variable in `.env` to point to the Jackson service.
 
 ### Start the server
 
@@ -38,5 +38,9 @@ npm run dev
 
 ### Testing
 
-Visit the URL [http://localhost:5000](http://localhost:5000)
+The demo app can be accessed locally using the following URL.
+
+```
+http://localhost:5000
+```
 
