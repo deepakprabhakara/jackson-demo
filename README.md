@@ -41,6 +41,6 @@ npm run dev
 The demo app can be accessed locally using the following URL.
 
 ```
-http://localhost:5000
+http://localhost:3000
 ```
 
