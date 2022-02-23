@@ -8,17 +8,17 @@ Follow the below instructions to setup this demo.
 
 ### Clone the repo
 
-```
+```bash
 git clone https://github.com/boxyhq/jackson-demo.git
 ```
 
-```
+```bash
 cd jackson-demo
 ```
 
 ### Install dependencies
 
-```
+```bash
 npm install
 ```
 
@@ -28,7 +28,7 @@ Update the `NEXT_PUBLIC_JACKSON_SERVICE` variable in `.env` to point to the Jack
 
 ### Start the server
 
-```
+```bash
 npm run dev
 ```
 
@@ -36,7 +36,6 @@ npm run dev
 
 The demo app can be accessed locally using the following URL.
 
+```bash
+http://localhost:3366
 ```
-http://localhost:3000
-```
-
